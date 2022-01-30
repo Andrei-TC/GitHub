@@ -1,0 +1,79 @@
+section {
+  background: whitesmoke;
+  width: 100%;
+  height: 10rem;
+  border-bottom: 2px solid black;
+  display: grid;
+  place-items: center;
+}
+.box-animation {
+  width: 30rem;
+  height: 3rem;
+  margin: 0 auto;
+  background: url(https://unsplash.it/500/50);
+  display: grid;
+  object-fit: cover;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+  a {
+    text-decoration: none;
+    color: whitesmoke;
+    background: rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 0.3rem;
+    bottom: 0;
+    left: 0;
+    background: red;
+  }
+}
+.one {
+  &::after {
+    transition: transform 0.3s;
+    transform: translateX(100%);
+  }
+  &:hover::after {
+    transform: translateX(-100%);
+    bottom: 90%;
+  }
+}
+.two {
+  &::after {
+    transform-origin: right;
+    transition: transform 0.3s;
+    transform: scaleX(0);
+  }
+  &:hover::after {
+    transform-origin: left;
+    transform: scaleX(1);
+  }
+}
+.three {
+  text-align: center;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  &::after {
+    left: -1px;
+    top: -1px;
+    outline: 5px solid red;
+    background: transparent;
+    width: 152px;
+    height: 152px;
+    border-radius: 50%;
+    transition: 0.3s;
+    transform-origin: center;
+  }
+  &:hover::after {
+    width: 140px;
+    height: 140px;
+    left: 5px;
+    top: 5px;
+  }
+}
