@@ -1,0 +1,149 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ruthie&display=swap");
+:root {
+  --accent-color: #fb5a00;
+  --background-color: #292929;
+}
+* {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+}
+ul {
+  list-style-type: none;
+  li {
+    a {
+      text-decoration: none;
+    }
+  }
+}
+body {
+  height: 100vh;
+  width: 100vw;
+  .container {
+    height: 100%;
+    width: 100%;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+  }
+}
+section {
+  background: var(--background-color);
+  scroll-snap-align: start;
+  height: 100%;
+  width: 100%;
+}
+.hero {
+  display: grid;
+}
+nav {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  ul {
+    display: flex;
+    li {
+      margin-inline: 4em;
+      padding-top: 1em;
+    }
+  }
+  li a {
+    font-weight: 300;
+    color: white;
+    opacity: 55%;
+  }
+}
+.hero-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  padding-bottom: 25vh;
+  h1 {
+    font-family: "Ruthie", cursive;
+    color: white;
+    font-size: 8rem;
+    font-weight: 100;
+  }
+  p {
+    color: var(--accent-color);
+    font-size: 1.2rem;
+  }
+}
+
+.afterHero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h1 {
+    font-size: 3em;
+    color: white;
+    span {
+      color: var(--accent-color);
+    }
+  }
+}
+
+.about {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  h1 {
+    font-size: 3.5em;
+    font-weight: 500;
+    color: var(--accent-color);
+    margin-bottom: 1.3rem;
+  }
+  p {
+    width: 55ch;
+    font-size: 1em;
+    color: white;
+    opacity: 55%;
+    line-height: 1.7rem;
+    letter-spacing: 0.1rem;
+    font-weight: 200;
+    margin-bottom: 1em;
+  }
+}
+
+.career {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  .career-desc {
+    color: white;
+    text-align: center;
+    opacity: 55%;
+    margin-bottom: 4rem;
+    margin-top: 2rem;
+  }
+  h1 {
+    font-size: 3.5rem;
+    color: var(--accent-color);
+    text-align: center;
+    font-weight: 400;
+  }
+  .career-list {
+    display: flex;
+    justify-content: center;
+    gap: 6rem;
+  }
+  .c-card {
+    background: #1b1b1b;
+    border: 2px var(--accent-color) solid;
+    padding: 2rem 1rem;
+    height: 30rem;
+    h2 {
+      color: white;
+      text-align: center;
+    }
+    p {
+      color: white;
+      opacity: 55%;
+    }
+  }
+}

@@ -13,6 +13,10 @@
   font-family: "Poppins", sans-serif;
 }
 
+img {
+  width: 100%;
+}
+
 ul {
   list-style: none;
 }
@@ -26,6 +30,11 @@ a {
 
 a:hover {
   color: var(--clr-spicy);
+}
+
+html {
+  width: 100vw;
+  overflow-x: hidden;
 }
 
 header {
@@ -123,7 +132,7 @@ header ul {
 .hero .hero-list .hero__right .wd {
   position: absolute;
   top: 15.5rem;
-  left: 7rem;
+  left: 5rem;
   text-transform: uppercase;
   font-weight: 300;
 }
@@ -213,7 +222,8 @@ header ul {
   background-color: var(--clr-accent);
   position: relative;
   height: 51rem;
-  padding: 3rem;
+  padding: 2rem 0.5rem;
+  margin-inline: auto;
 }
 
 .project::after {

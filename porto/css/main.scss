@@ -10,6 +10,9 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+img {
+  width: 100%;
+}
 ul {
   list-style: none;
 }
@@ -20,6 +23,10 @@ a {
   &:hover {
     color: var(--clr-spicy);
   }
+}
+html {
+  width: 100vw;
+  overflow-x: hidden;
 }
 header {
   background-color: white;
@@ -93,7 +100,7 @@ header {
       .wd {
         position: absolute;
         top: 15.5rem;
-        left: 7rem;
+        left: 5rem;
         text-transform: uppercase;
         font-weight: 300;
         &::before {
@@ -173,7 +180,8 @@ header {
   background-color: var(--clr-accent);
   position: relative;
   height: 51rem;
-  padding: 3rem;
+  padding: 2rem 0.5rem;
+  margin-inline: auto;
   &::after {
     content: "";
     background-color: var(--clr-accent);

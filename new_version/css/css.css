@@ -1,0 +1,215 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ruthie&display=swap");
+:root {
+  --accent-color: #fb5a00;
+  --background-color: #292929;
+}
+
+* {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+ul {
+  list-style-type: none;
+}
+
+ul li a {
+  text-decoration: none;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+}
+
+body .container {
+  height: 100%;
+  width: 100%;
+  -ms-scroll-snap-type: y mandatory;
+      scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+section {
+  background: var(--background-color);
+  scroll-snap-align: start;
+  height: 100%;
+  width: 100%;
+}
+
+.hero {
+  display: -ms-grid;
+  display: grid;
+}
+
+nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+}
+
+nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+nav ul li {
+  margin-inline: 4em;
+  padding-top: 1em;
+}
+
+nav li a {
+  font-weight: 300;
+  color: white;
+  opacity: 55%;
+}
+
+.hero-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  text-align: center;
+  padding-bottom: 25vh;
+}
+
+.hero-title h1 {
+  font-family: "Ruthie", cursive;
+  color: white;
+  font-size: 8rem;
+  font-weight: 100;
+}
+
+.hero-title p {
+  color: var(--accent-color);
+  font-size: 1.2rem;
+}
+
+.afterHero {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.afterHero h1 {
+  font-size: 3em;
+  color: white;
+}
+
+.afterHero h1 span {
+  color: var(--accent-color);
+}
+
+.about {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+.about h1 {
+  font-size: 3.5em;
+  font-weight: 500;
+  color: var(--accent-color);
+  margin-bottom: 1.3rem;
+}
+
+.about p {
+  width: 55ch;
+  font-size: 1em;
+  color: white;
+  opacity: 55%;
+  line-height: 1.7rem;
+  letter-spacing: 0.1rem;
+  font-weight: 200;
+  margin-bottom: 1em;
+}
+
+.career {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.career .career-desc {
+  color: white;
+  text-align: center;
+  opacity: 55%;
+  margin-bottom: 4rem;
+  margin-top: 2rem;
+}
+
+.career h1 {
+  font-size: 3.5rem;
+  color: var(--accent-color);
+  text-align: center;
+  font-weight: 400;
+}
+
+.career .career-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 6rem;
+}
+
+.career .c-card {
+  background: #1b1b1b;
+  border: 2px var(--accent-color) solid;
+  padding: 2rem 1rem;
+  height: 30rem;
+}
+
+.career .c-card h2 {
+  color: white;
+  text-align: center;
+}
+
+.career .c-card p {
+  color: white;
+  opacity: 55%;
+}
+/*# sourceMappingURL=css.css.map */
