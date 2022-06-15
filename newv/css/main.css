@@ -903,6 +903,112 @@ nav li a {
   z-index: 1;
 }
 
+.outro {
+  height: 65rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.outro ol {
+  text-decoration: none;
+  list-style-type: none;
+  padding: 0;
+}
+
+.outro h1 {
+  font-size: 3.52rem;
+  color: var(--accent-color);
+  text-align: center;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.outro p {
+  color: white;
+  text-align: center;
+  opacity: 85%;
+  font-weight: 100;
+  margin-bottom: 4rem;
+  margin-top: 2rem;
+}
+
+.outro .horrorGame-card {
+  padding: 2rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-row-align: center;
+      align-self: center;
+  background: #1b1b1b;
+  border: 2px var(--accent-color) solid;
+  width: 30rem;
+  height: 40rem;
+  text-align: center;
+}
+
+.outro .horrorGame-card p {
+  margin-top: 1rem;
+  margin-bottom: 0;
+  letter-spacing: 0.13rem;
+}
+
+.outro .horrorGame-card h2 {
+  color: white;
+  margin-bottom: 2rem;
+}
+
+.outro .horrorGame-card .outro-thing {
+  border: 2px var(--accent-color) solid;
+  background-color: var(--background-color);
+  padding: 1rem;
+}
+
+.outro .horrorGame-card ol {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-item-align: center;
+      align-self: center;
+  justify-self: center;
+  width: 70%;
+  text-align: center;
+}
+
+.outro .horrorGame-card ol li {
+  background-color: var(--background-color);
+  margin-bottom: 0.2rem;
+  color: white;
+  letter-spacing: 0.13rem;
+  font-weight: 100;
+  font-size: 0.9rem;
+}
+
+.footer {
+  margin-top: 7rem;
+  width: 100%;
+  height: 20rem;
+  background: #1b1b1b;
+  border-top: 2px var(--accent-color) solid;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .qvActive :nth-of-type(1) {
   -webkit-animation: career 0.3s;
           animation: career 0.3s;
