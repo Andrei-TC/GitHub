@@ -4,12 +4,16 @@
   --accent-color: #fb5a00;
   --background-color: #292929;
 }
-* {
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
   margin: 0;
   font-family: "Poppins", sans-serif;
 }
 ul {
   list-style-type: none;
+  padding: 0;
   li {
     a {
       text-decoration: none;
@@ -23,6 +27,8 @@ body {
   .container {
     height: 100%;
     width: 100%;
+    max-width: 1920px;
+    overflow-x: hidden;
     scroll-snap-type: y mandatory;
     overflow-y: scroll;
     scroll-behavior: smooth;
@@ -77,52 +83,6 @@ nav {
     animation: title-sub 2s;
   }
 }
-
-@keyframes title {
-  0% {
-    opacity: 0%;
-  }
-  100% {
-    opacity: 100%;
-  }
-}
-@keyframes title-sub {
-  0% {
-    transform: translateY(100%);
-    opacity: 0%;
-  }
-  85% {
-    transform: translateY(100%);
-    opacity: 0%;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 100%;
-  }
-}
-@keyframes nav {
-  0% {
-    transform: translateY(-100%);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-@keyframes career {
-  0% {
-    transform: translateX(-20%);
-    opacity: 0%;
-  }
-  30% {
-    transform: translateX(-20%);
-    opacity: 0%;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 100%;
-  }
-}
-
 .afterHero,
 .afterCareer {
   display: flex;
@@ -159,7 +119,7 @@ nav {
       height: 40rem;
       left: -0.8rem;
       top: -10rem;
-      z-index: -1;
+      z-index: -2;
     }
   }
 }
@@ -221,7 +181,6 @@ nav {
     margin-bottom: 1em;
   }
 }
-
 .career {
   display: flex;
   flex-direction: column;
@@ -253,13 +212,13 @@ nav {
     padding: 0;
   }
   .c-card {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: 1fr 3fr;
     overflow: hidden;
     background: #1b1b1b;
     border: 2px var(--accent-color) solid;
-    padding: 1rem;
-    height: 30rem;
+    padding: 0.5rem;
+    height: 35rem;
     width: 17rem;
     h2 {
       color: white;
@@ -298,7 +257,7 @@ nav {
           cursor: auto;
           font-weight: 100;
           letter-spacing: 0.1rem;
-          font-size: 0.9rem;
+          font-size: 0.8rem;
           font-weight: 100;
         }
       }
@@ -336,6 +295,257 @@ nav {
         position: relative;
       }
     }
+  }
+  .c-desc {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    align-items: center;
+    width: 100%;
+    h2 {
+      margin: auto;
+      width: 10ch;
+    }
+  }
+}
+.projects {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  .project-links {
+    &:hover {
+      filter: opacity(50%);
+    }
+  }
+  .proj {
+    z-index: 7;
+    h1 {
+      position: absolute;
+      text-align: center;
+      color: var(--accent-color);
+      width: 100%;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      font-size: 2rem;
+    }
+  }
+  .unhover:hover + .proj1 {
+    //transform: translate(-60%, 40%);
+    animation: proj1anim 0.3s;
+    & + .proj2 {
+      //transform: translate(-140%, -95%);
+      animation: proj2anim 0.3s;
+      & + .proj3 {
+        //transform: translate(-220%, -50%);
+        animation: proj3anim 0.6s;
+        & + .proj4 {
+          //transform: translate(20%, -95%);
+          animation: proj4anim 0.3s;
+          & + .proj5 {
+            //transform: translate(100%, -140%);
+            animation: proj5anim 0.6s;
+            & + .proj6 {
+              //transform: translate(180%, -95%);
+              animation: proj6anim 0.9s;
+              & ~ .projp1 {
+                animation: projp1anim 0.3s;
+                & ~ .projp2 {
+                  animation: projp2anim 0.6s;
+                  & ~ .projp3 {
+                    animation: projp3anim 0.9s;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .proj.hovered + .proj1 {
+    transform: translate(-60%, 40%);
+    & + .proj2 {
+      transform: translate(-140%, -95%);
+      & + .proj3 {
+        transform: translate(-220%, -50%);
+        & + .proj4 {
+          transform: translate(20%, -95%);
+          & + .proj5 {
+            transform: translate(100%, -140%);
+            & + .proj6 {
+              transform: translate(180%, -95%);
+              & ~ .projp1 {
+                transform: translate(-60%, -250%);
+                & ~ .projp2 {
+                  transform: translate(-170%, 20%);
+                  & ~ .projp3 {
+                    transform: translate(150%, -110%);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  @keyframes proj1anim {
+    0% {
+      transform: translate(-60%, -50%);
+    }
+    100% {
+      transform: translate(-60%, 40%);
+    }
+  }
+  @keyframes proj2anim {
+    0% {
+      transform: translate(-60%, -50%);
+    }
+    100% {
+      transform: translate(-140%, -95%);
+    }
+  }
+  @keyframes proj3anim {
+    0% {
+      transform: translate(-60%, -50%);
+    }
+    50% {
+      transform: translate(-140%, -95%);
+    }
+    100% {
+      transform: translate(-220%, -50%);
+    }
+  }
+  @keyframes proj4anim {
+    0% {
+      transform: translate(-60%, -50%);
+    }
+    100% {
+      transform: translate(20%, -95%);
+    }
+  }
+  @keyframes proj5anim {
+    0% {
+      transform: translate(-60%, -50%);
+    }
+    50% {
+      transform: translate(20%, -95%);
+    }
+    100% {
+      transform: translate(100%, -140%);
+    }
+  }
+  @keyframes proj6anim {
+    0% {
+      transform: translate(-60%, -50%);
+    }
+    33% {
+      transform: translate(20%, -95%);
+    }
+    66% {
+      transform: translate(100%, -140%);
+    }
+    100% {
+      transform: translate(180%, -95%);
+    }
+  }
+  @keyframes projp1anim {
+    0% {
+      transform: translate(-60%, -50%);
+    }
+    100% {
+      transform: translate(-60%, -250%);
+    }
+  }
+  @keyframes projp2anim {
+    0% {
+      transform: translate(-60%, -50%);
+    }
+    66% {
+      transform: translate(-60%, -50%);
+    }
+    100% {
+      transform: translate(-170%, 20%);
+    }
+  }
+  @keyframes projp3anim {
+    0% {
+      transform: translate(-60%, -50%);
+    }
+    33% {
+      transform: translate(20%, -195%);
+    }
+    66% {
+      transform: translate(150%, -360%);
+    }
+    100% {
+      transform: translate(150%, -110%);
+    }
+  }
+  @keyframes pulse {
+    0% {
+      transform: scale(1) translate(-60%, -50%);
+      opacity: 1;
+    }
+
+    10% {
+      transform: scale(1.1) translate(-55%, -45%);
+      opacity: 0.5;
+    }
+
+    100% {
+      transform: scale(1.3) translate(-45%, -40%);
+      opacity: 0;
+    }
+  }
+  .pulseContainer {
+    display: none;
+  }
+  .pulseContainer.pchover {
+    display: inline;
+    animation: pulse 1s ease-out infinite;
+    position: absolute;
+    left: 40%;
+    top: 50%;
+    transform: translate(-60%, -50%);
+    transition: 0.3s;
+    text-align: center;
+  }
+  .proj,
+  .proj1,
+  .proj2,
+  .proj3,
+  .proj4,
+  .proj5,
+  .proj6,
+  .projp1,
+  .projp2,
+  .projp3 {
+    position: absolute;
+    left: 40%;
+    top: 50%;
+    transform: translate(-60%, -50%);
+    transition: 0.3s;
+    text-align: center;
+  }
+  .proj1,
+  .proj2,
+  .proj3,
+  .proj4,
+  .proj5,
+  .proj6 {
+    cursor: pointer;
+    z-index: 2;
+  }
+  .projp1,
+  .projp2,
+  .projp3 {
+    width: 24ch;
+    color: white;
+    font-weight: 100;
+    letter-spacing: 0.2rem;
+    z-index: 1;
   }
 }
 .qvActive :nth-of-type(1) {
@@ -392,13 +602,55 @@ nav {
 .dActive li :nth-of-type(1) {
   animation: none;
 }
+@keyframes title {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+@keyframes title-sub {
+  0% {
+    transform: translateY(100%);
+    opacity: 0%;
+  }
+  85% {
+    transform: translateY(100%);
+    opacity: 0%;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 100%;
+  }
+}
+@keyframes nav {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes career {
+  0% {
+    transform: translateX(-20%);
+    opacity: 0%;
+  }
+  30% {
+    transform: translateX(-20%);
+    opacity: 0%;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 100%;
+  }
+}
 @media (max-width: 1080px) {
   body {
     .container {
-      scroll-snap-type: y proximity;
-    }
-    section {
-      scroll-snap-align: start;
+      max-width: 100vw;
+      scroll-snap-type: none;
     }
   }
   nav {

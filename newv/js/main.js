@@ -1,6 +1,8 @@
 const qvList = document.querySelector(".career-qv");
 const feList = document.querySelector(".career-fe");
 const dList = document.querySelector(".career-3d");
+const proj = document.querySelector(".proj");
+const pulse = document.querySelector(".pulseContainer");
 
 window.onclick = (e) => {
   console.log(e.target);
@@ -41,3 +43,23 @@ window.onclick = (e) => {
     }
   } else return;
 };
+function delay(time) {
+  return new Promise((resolve) => setTimeout(resolve, time));
+}
+
+proj.onmouseover = function () {
+  if (proj.classList.contains("hovered")) return;
+  proj.classList.add("hovered");
+  delay(1000).then(
+    () => proj.classList.remove("unhover"),
+    pulse.classList.remove("pchover")
+  );
+};
+proj.addEventListener("click", () => {
+  if (proj.classList.contains("hovered")) return;
+  proj.classList.add("hovered");
+  delay(1000).then(
+    () => proj.classList.remove("unhover"),
+    pulse.classList.remove("pchover")
+  );
+});
