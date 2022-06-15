@@ -303,9 +303,9 @@ nav li a {
   overflow: hidden;
   background: #1b1b1b;
   border: 2px var(--accent-color) solid;
-  padding: 0.5rem;
+  padding: 0.7rem;
   height: 35rem;
-  width: 17rem;
+  width: 18rem;
 }
 
 .career .c-card h2 {
@@ -345,7 +345,7 @@ nav li a {
       -ms-flex: none;
           flex: none;
   height: 100%;
-  width: 70%;
+  width: 80%;
   padding: 0;
   gap: 0.5em;
 }
