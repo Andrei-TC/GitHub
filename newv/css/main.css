@@ -21,6 +21,7 @@ ul li a {
 body {
   height: 100vh;
   width: 100vw;
+  overflow: hidden;
 }
 
 body .container {
@@ -37,6 +38,7 @@ section {
   scroll-snap-align: start;
   height: 100%;
   width: 100%;
+  min-height: 55rem;
 }
 
 .hero {
@@ -100,7 +102,8 @@ nav li a {
   font-size: 1.2rem;
 }
 
-.afterHero {
+.afterHero,
+.afterCareer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -112,12 +115,14 @@ nav li a {
           align-items: center;
 }
 
-.afterHero h1 {
+.afterHero h1,
+.afterCareer h1 {
   font-size: 3em;
   color: white;
 }
 
-.afterHero h1 span {
+.afterHero h1 span,
+.afterCareer h1 span {
   color: var(--accent-color);
 }
 
@@ -171,6 +176,10 @@ nav li a {
           justify-content: center;
 }
 
+.career * {
+  padding: 0;
+}
+
 .career .career-desc {
   color: white;
   text-align: center;
@@ -193,14 +202,27 @@ nav li a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  gap: 6rem;
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+  gap: 4rem;
+  padding: 0;
 }
 
 .career .c-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  overflow: hidden;
   background: #1b1b1b;
   border: 2px var(--accent-color) solid;
-  padding: 2rem 1rem;
+  padding: 1rem;
   height: 30rem;
+  width: 17rem;
 }
 
 .career .c-card h2 {
@@ -211,5 +233,103 @@ nav li a {
 .career .c-card p {
   color: white;
   opacity: 55%;
+}
+
+.career .career-where {
+  margin: 1rem 0 1rem 0;
+  text-align: center;
+}
+
+.career .career-block {
+  padding-top: 2rem;
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.career .career-block .career-items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+  height: 100%;
+  width: 70%;
+  padding: 0;
+  gap: 0.5em;
+}
+
+.career .career-block .career-items li {
+  width: 100%;
+  cursor: pointer;
+}
+
+.career .career-block .career-items li ul > li {
+  cursor: auto;
+}
+
+.career .career-block .career-items ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  position: absolute;
+}
+
+.career .career-block .career-items ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  margin-bottom: 2px;
+  width: 80%;
+  background: var(--background-color);
+  padding: 0.3rem 1rem;
+}
+
+.career .career-block .career-items .career-list-item {
+  background: var(--background-color);
+  border: 2px var(--accent-color) solid;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  width: 100%;
+  padding-block: 0.5rem;
+  pointer-events: none;
+}
+
+.career .career-block .career-items .qvActive,
+.career .career-block .career-items .feActive,
+.career .career-block .career-items .dActive {
+  position: relative;
 }
 /*# sourceMappingURL=main.css.map */
