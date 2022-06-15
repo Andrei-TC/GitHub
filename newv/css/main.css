@@ -54,6 +54,8 @@ nav {
       -ms-flex-pack: center;
           justify-content: center;
   width: 100%;
+  -webkit-animation: nav 1.5s;
+          animation: nav 1.5s;
 }
 
 nav ul {
@@ -95,11 +97,129 @@ nav li a {
   color: white;
   font-size: 8rem;
   font-weight: 100;
+  -webkit-animation: title 3s;
+          animation: title 3s;
 }
 
 .hero-title p {
   color: var(--accent-color);
   font-size: 1.2rem;
+  -webkit-animation-delay: 3s;
+          animation-delay: 3s;
+  -webkit-animation: title-sub 2s;
+          animation: title-sub 2s;
+}
+
+@-webkit-keyframes title {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+@keyframes title {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+@-webkit-keyframes title-sub {
+  0% {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+    opacity: 0%;
+  }
+  85% {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+    opacity: 0%;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 100%;
+  }
+}
+
+@keyframes title-sub {
+  0% {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+    opacity: 0%;
+  }
+  85% {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+    opacity: 0%;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 100%;
+  }
+}
+
+@-webkit-keyframes nav {
+  0% {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes nav {
+  0% {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes career {
+  0% {
+    -webkit-transform: translateX(-20%);
+            transform: translateX(-20%);
+    opacity: 0%;
+  }
+  30% {
+    -webkit-transform: translateX(-20%);
+            transform: translateX(-20%);
+    opacity: 0%;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 100%;
+  }
+}
+
+@keyframes career {
+  0% {
+    -webkit-transform: translateX(-20%);
+            transform: translateX(-20%);
+    opacity: 0%;
+  }
+  30% {
+    -webkit-transform: translateX(-20%);
+            transform: translateX(-20%);
+    opacity: 0%;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 100%;
+  }
 }
 
 .afterHero,
@@ -115,15 +235,84 @@ nav li a {
           align-items: center;
 }
 
-.afterHero h1,
-.afterCareer h1 {
-  font-size: 3em;
-  color: white;
+.afterCareer {
+  position: relative;
 }
 
-.afterHero h1 span,
-.afterCareer h1 span {
+.afterCareer h1 {
+  position: absolute;
+  z-index: 2;
+  font-size: 6em;
+  color: #555555;
+}
+
+.afterCareer svg {
+  position: absolute;
+  width: 30rem;
+  height: 30rem;
+  left: -7rem;
+  top: -20rem;
+  -webkit-transform: rotateX(180deg);
+          transform: rotateX(180deg);
+  z-index: -2;
+}
+
+.afterCareer span {
+  position: absolute;
+  z-index: 2;
+  padding-top: 8rem;
+  font-size: 6em;
+  font-weight: bold;
   color: var(--accent-color);
+}
+
+.afterCareer span svg {
+  position: absolute;
+  width: 40rem;
+  height: 40rem;
+  left: -0.8rem;
+  top: -10rem;
+  z-index: -1;
+}
+
+.afterHero {
+  position: relative;
+}
+
+.afterHero h1 {
+  position: absolute;
+  z-index: 2;
+  font-size: 6em;
+  color: #555555;
+}
+
+.afterHero h1 svg {
+  position: absolute;
+  width: 30rem;
+  height: 30rem;
+  left: 0.8rem;
+  top: -17rem;
+  -webkit-transform: rotateX(180deg);
+          transform: rotateX(180deg);
+  z-index: -2;
+}
+
+.afterHero span {
+  position: absolute;
+  z-index: 2;
+  padding-top: 6rem;
+  font-size: 6em;
+  font-weight: bold;
+  color: var(--accent-color);
+}
+
+.afterHero span svg {
+  position: absolute;
+  width: 40rem;
+  height: 40rem;
+  left: -0.8rem;
+  top: -10rem;
+  z-index: -1;
 }
 
 .about {
@@ -154,7 +343,7 @@ nav li a {
   width: 55ch;
   font-size: 1em;
   color: white;
-  opacity: 55%;
+  opacity: 85%;
   line-height: 1.7rem;
   letter-spacing: 0.1rem;
   font-weight: 200;
@@ -183,7 +372,8 @@ nav li a {
 .career .career-desc {
   color: white;
   text-align: center;
-  opacity: 55%;
+  opacity: 85%;
+  font-weight: 100;
   margin-bottom: 4rem;
   margin-top: 2rem;
 }
@@ -192,7 +382,8 @@ nav li a {
   font-size: 3.52rem;
   color: var(--accent-color);
   text-align: center;
-  font-weight: 400;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 .career .career-list {
@@ -230,14 +421,12 @@ nav li a {
   text-align: center;
 }
 
-.career .c-card p {
-  color: white;
-  opacity: 55%;
-}
-
 .career .career-where {
   margin: 1rem 0 1rem 0;
   text-align: center;
+  color: white;
+  opacity: 55%;
+  font-weight: 100;
 }
 
 .career .career-block {
@@ -270,12 +459,19 @@ nav li a {
 }
 
 .career .career-block .career-items li {
+  color: white;
   width: 100%;
   cursor: pointer;
+  font-size: 1rem;
+  font-weight: 300;
 }
 
 .career .career-block .career-items li ul > li {
   cursor: auto;
+  font-weight: 100;
+  letter-spacing: 0.1rem;
+  font-size: 0.9rem;
+  font-weight: 100;
 }
 
 .career .career-block .career-items ul {
@@ -331,5 +527,249 @@ nav li a {
 .career .career-block .career-items .feActive,
 .career .career-block .career-items .dActive {
   position: relative;
+}
+
+.qvActive :nth-of-type(1) {
+  -webkit-animation: career 0.3s;
+          animation: career 0.3s;
+}
+
+.qvActive :nth-of-type(2) {
+  -webkit-animation: career 0.5s;
+          animation: career 0.5s;
+}
+
+.qvActive :nth-of-type(3) {
+  -webkit-animation: career 0.7s;
+          animation: career 0.7s;
+}
+
+.qvActive :nth-of-type(4) {
+  -webkit-animation: career 0.9s;
+          animation: career 0.9s;
+}
+
+.qvActive :nth-of-type(5) {
+  -webkit-animation: career 1.1s;
+          animation: career 1.1s;
+}
+
+.qvActive li :nth-of-type(1) {
+  -webkit-animation: none;
+          animation: none;
+}
+
+.feActive :nth-of-type(1) {
+  -webkit-animation: career 0.3s;
+          animation: career 0.3s;
+}
+
+.feActive :nth-of-type(2) {
+  -webkit-animation: career 0.5s;
+          animation: career 0.5s;
+}
+
+.feActive :nth-of-type(3) {
+  -webkit-animation: career 0.7s;
+          animation: career 0.7s;
+}
+
+.feActive :nth-of-type(4) {
+  -webkit-animation: career 0.9s;
+          animation: career 0.9s;
+}
+
+.feActive :nth-of-type(5) {
+  -webkit-animation: career 1.1s;
+          animation: career 1.1s;
+}
+
+.feActive li :nth-of-type(1) {
+  -webkit-animation: none;
+          animation: none;
+}
+
+.dActive :nth-of-type(1) {
+  -webkit-animation: career 0.3s;
+          animation: career 0.3s;
+}
+
+.dActive :nth-of-type(2) {
+  -webkit-animation: career 0.5s;
+          animation: career 0.5s;
+}
+
+.dActive :nth-of-type(3) {
+  -webkit-animation: career 0.7s;
+          animation: career 0.7s;
+}
+
+.dActive :nth-of-type(4) {
+  -webkit-animation: career 0.9s;
+          animation: career 0.9s;
+}
+
+.dActive :nth-of-type(5) {
+  -webkit-animation: career 1.1s;
+          animation: career 1.1s;
+}
+
+.dActive li :nth-of-type(1) {
+  -webkit-animation: none;
+          animation: none;
+}
+
+@media (max-width: 1080px) {
+  body .container {
+    -ms-scroll-snap-type: y proximity;
+        scroll-snap-type: y proximity;
+  }
+  body section {
+    scroll-snap-align: start;
+  }
+  nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: 100%;
+    -webkit-animation: nav 1.5s;
+            animation: nav 1.5s;
+  }
+  nav ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 0;
+  }
+  nav ul li {
+    margin-inline: 1em;
+    padding-top: 1.5em;
+  }
+  .hero-title {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    text-align: center;
+    padding-bottom: 25vh;
+  }
+  .hero-title h1 {
+    font-family: "Ruthie", cursive;
+    color: white;
+    font-size: 6rem;
+    font-weight: 100;
+    -webkit-animation: title 3s;
+            animation: title 3s;
+  }
+  .hero-title p {
+    color: var(--accent-color);
+    font-size: 1.8rem;
+    font-weight: 100;
+    -webkit-animation-delay: 3s;
+            animation-delay: 3s;
+    -webkit-animation: title-sub 2s;
+            animation: title-sub 2s;
+  }
+  .afterHero h1 {
+    position: absolute;
+    z-index: 2;
+    font-size: 3em;
+    color: #555555;
+  }
+  .afterHero h1 svg {
+    position: absolute;
+    width: 20rem;
+    height: 20rem;
+    left: 0;
+    top: -5rem;
+    -webkit-transform: rotateX(180deg);
+            transform: rotateX(180deg);
+    z-index: -2;
+  }
+  .afterHero span {
+    position: absolute;
+    z-index: 2;
+    padding-top: 6rem;
+    font-size: 3em;
+    font-weight: bold;
+    color: var(--accent-color);
+  }
+  .afterHero span svg {
+    position: absolute;
+    width: 20rem;
+    height: 20rem;
+    left: -0.8rem;
+    top: -10rem;
+    z-index: -1;
+  }
+  .afterCareer h1 {
+    position: absolute;
+    z-index: 2;
+    font-size: 3em;
+    color: #555555;
+  }
+  .afterCareer svg {
+    position: absolute;
+    width: 20rem;
+    height: 20rem;
+    left: -3rem;
+    top: -2rem;
+    -webkit-transform: rotateX(180deg);
+            transform: rotateX(180deg);
+    z-index: -2;
+  }
+  .afterCareer span {
+    position: absolute;
+    z-index: 2;
+    padding-top: 8rem;
+    font-size: 3em;
+    font-weight: bold;
+    color: var(--accent-color);
+  }
+  .afterCareer span svg {
+    position: absolute;
+    width: 20rem;
+    height: 20rem;
+    left: 0;
+    top: -2rem;
+    z-index: -1;
+  }
+  .career {
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    padding-bottom: 3rem;
+  }
+  .career .career-list {
+    display: -ms-grid;
+    display: grid;
+  }
+  .about h1 {
+    font-size: 3em;
+    font-weight: 500;
+    color: var(--accent-color);
+    margin-bottom: 1.3rem;
+  }
+  .about p {
+    width: 35ch;
+    font-size: 1em;
+    color: white;
+    opacity: 85%;
+    line-height: 1.7rem;
+    letter-spacing: 0.1rem;
+    font-weight: 200;
+    margin-bottom: 1em;
+  }
 }
 /*# sourceMappingURL=main.css.map */
