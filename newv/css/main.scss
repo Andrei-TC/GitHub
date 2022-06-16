@@ -27,7 +27,6 @@ body {
   .container {
     height: 100%;
     width: 100%;
-    max-width: 1920px;
     overflow-x: hidden;
     scroll-snap-type: y mandatory;
     overflow-y: scroll;
@@ -253,12 +252,22 @@ nav {
         cursor: pointer;
         font-size: 1rem;
         font-weight: 300;
+        position: relative;
+        ul {
+          position: absolute;
+          left: 0;
+          top: 0;
+          z-index: -1;
+        }
         ul > li {
           cursor: auto;
           font-weight: 100;
           letter-spacing: 0.1rem;
           font-size: 0.8rem;
           font-weight: 100;
+          &:hover {
+            opacity: 50%;
+          }
         }
       }
 
@@ -293,6 +302,7 @@ nav {
       .feActive,
       .dActive {
         position: relative;
+        z-index: 1;
       }
     }
   }
@@ -549,6 +559,7 @@ nav {
   }
 }
 .outro {
+  padding-top: 3rem;
   height: 65rem;
   display: flex;
   flex-direction: column;
@@ -560,7 +571,7 @@ nav {
     padding: 0;
   }
   h1 {
-    font-size: 3.52rem;
+    font-size: Clamp(2rem, 5vw, 3.5rem);
     color: var(--accent-color);
     text-align: center;
     font-weight: 600;
@@ -568,10 +579,13 @@ nav {
   }
   p {
     color: white;
+    font-size: Clamp(0.8rem, 3vw, 1rem);
+    margin-inline: auto;
     text-align: center;
+    max-width: 30ch;
     opacity: 85%;
     font-weight: 100;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
     margin-top: 2rem;
   }
   .horrorGame-card {
@@ -580,22 +594,26 @@ nav {
     align-self: center;
     background: #1b1b1b;
     border: 2px var(--accent-color) solid;
-    width: 30rem;
+    width: Min(25rem, 80vw);
     height: 40rem;
     text-align: center;
     p {
-      margin-top: 1rem;
+      margin-top: 0.7rem;
       margin-bottom: 0;
-      letter-spacing: 0.13rem;
+      margin-inline: 1rem;
+      letter-spacing: 0.11rem;
     }
     h2 {
       color: white;
+      margin-top: 1rem;
       margin-bottom: 2rem;
     }
     .outro-thing {
       border: 2px var(--accent-color) solid;
       background-color: var(--background-color);
-      padding: 1rem;
+      padding: 0.5rem;
+      font-size: 1.1rem;
+      font-weight: 300;
     }
     ol {
       display: flex;
@@ -606,6 +624,7 @@ nav {
       text-align: center;
       li {
         background-color: var(--background-color);
+        padding: 0.3rem 0.2rem;
         margin-bottom: 0.2rem;
         color: white;
         letter-spacing: 0.13rem;
@@ -616,9 +635,9 @@ nav {
   }
 }
 .footer {
-  margin-top: 7rem;
+  margin-top: 1.5rem;
   width: 100%;
-  height: 20rem;
+  height: 7rem;
   background: #1b1b1b;
   border-top: 2px var(--accent-color) solid;
   display: grid;
@@ -855,6 +874,162 @@ nav {
       letter-spacing: 0.1rem;
       font-weight: 200;
       margin-bottom: 1em;
+    }
+  }
+  .projects {
+    padding-inline: 2rem;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    .project-links {
+      &:hover {
+        filter: opacity(50%);
+      }
+    }
+    .proj {
+      z-index: 7;
+      max-width: 15rem;
+      h1 {
+        position: absolute;
+        text-align: center;
+        color: var(--accent-color);
+        width: 100%;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        font-size: 2rem;
+      }
+    }
+    .unhover:hover + .proj1 {
+      //transform: translate(-60%, 40%);
+      animation: proj1anim 0.3s;
+      & + .proj2 {
+        //transform: translate(-140%, -95%);
+        animation: proj2anim 0.3s;
+        & + .proj3 {
+          //transform: translate(-220%, -50%);
+          animation: proj3anim 0.6s;
+          & + .proj4 {
+            //transform: translate(20%, -95%);
+            animation: proj4anim 0.3s;
+            & + .proj5 {
+              //transform: translate(100%, -140%);
+              animation: proj5anim 0.6s;
+              & + .proj6 {
+                //transform: translate(180%, -95%);
+                animation: proj6anim 0.9s;
+                & ~ .projp1 {
+                  animation: projp1anim 0.3s;
+                  & ~ .projp2 {
+                    animation: projp2anim 0.6s;
+                    & ~ .projp3 {
+                      animation: projp3anim 0.9s;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .proj.hovered + .proj1 {
+      transform: translate(-65%, 55%) scale(0.8);
+      & + .proj2 {
+        transform: translate(0, 27.5%) scale(0.8);
+        & + .proj3 {
+          transform: translate(-65%, -55%) scale(0.8);
+          & + .proj4 {
+            transform: translate(0, 82.5%) scale(0.8);
+            & + .proj5 {
+              transform: translate(0, 137.5%) scale(0.8);
+              & + .proj6 {
+                transform: translate(-65%, 165%) scale(0.8);
+                & ~ .projp1 {
+                  transform: translate(0, 0%) scale(0.8);
+                  & ~ .projp2 {
+                    transform: translate(-70%, 230%) scale(0.8);
+                    & ~ .projp3 {
+                      transform: translate(5%, 660%) scale(0.8);
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    @keyframes pulse {
+      0% {
+        transform: scale(0.6) translate(-100%, 0);
+        opacity: 0;
+      }
+
+      10% {
+        transform: scale(0.8) translate(-80%, 0);
+        opacity: 0.9;
+      }
+
+      100% {
+        transform: scale(1) translate(-65%, 0);
+        opacity: 0;
+      }
+    }
+    .pulseContainer {
+      display: none;
+    }
+    .pulseContainer.pchover {
+      display: inline;
+      animation: pulse 1s ease-out infinite;
+      position: absolute;
+      left: 40%;
+      top: 0;
+      transform: translate(-65%, 0) scale(0.8);
+      transition: 0.3s;
+      text-align: center;
+      width: 14rem;
+    }
+    .proj,
+    .proj1,
+    .proj2,
+    .proj3,
+    .proj4,
+    .proj5,
+    .proj6,
+    .projp1,
+    .projp2,
+    .projp3 {
+      position: absolute;
+      left: 40%;
+      top: 0;
+      transform: translate(-65%, 0) scale(0.8);
+      transition: 0.3s;
+      text-align: center;
+      width: 14rem;
+    }
+    .proj1,
+    .proj2,
+    .proj3,
+    .proj4,
+    .proj5,
+    .proj6 {
+      cursor: pointer;
+      z-index: 2;
+    }
+    .projp1,
+    .projp2,
+    .projp3 {
+      width: 24ch;
+      color: white;
+      font-weight: 100;
+      letter-spacing: 0.2rem;
+      z-index: 1;
+      opacity: 1;
+    }
+    .pp {
+      opacity: 0;
     }
   }
 }

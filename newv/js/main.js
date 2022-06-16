@@ -3,9 +3,10 @@ const feList = document.querySelector(".career-fe");
 const dList = document.querySelector(".career-3d");
 const proj = document.querySelector(".proj");
 const pulse = document.querySelector(".pulseContainer");
-
+const project = document.querySelector(".projects");
+const pp = project.querySelectorAll(".pp");
+console.log(pp);
 window.onclick = (e) => {
-  console.log(e.target);
   var parent = e.target.children[1].parentNode.parentNode.parentNode.parentNode;
   if (parent == qvList) {
     var qvCurrentActive = document.querySelector(".qvActive");
@@ -62,4 +63,7 @@ proj.addEventListener("click", () => {
     () => proj.classList.remove("unhover"),
     pulse.classList.remove("pchover")
   );
+  for (let i = 0; i < pp.length; i++) {
+    pp[i].classList.remove("pp");
+  }
 });
