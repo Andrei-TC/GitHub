@@ -854,8 +854,14 @@ nav {
   .career {
     height: fit-content;
     padding-bottom: 3rem;
+
     .career-list {
       display: grid;
+    }
+    .career-desc {
+      width: 35ch;
+      display: grid;
+      align-self: center;
     }
   }
   .about {

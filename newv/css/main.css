@@ -1366,6 +1366,13 @@ nav li a {
     display: -ms-grid;
     display: grid;
   }
+  .career .career-desc {
+    width: 35ch;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-row-align: center;
+        align-self: center;
+  }
   .about h1 {
     font-size: 3em;
     font-weight: 500;
