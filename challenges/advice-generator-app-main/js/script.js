@@ -1,4 +1,4 @@
-const fetchAdvice = async () => {
+async function fetchAdvice() {
   const res = await fetch("https://api.adviceslip.com/advice");
   const data = await res.json();
 
@@ -7,4 +7,4 @@ const fetchAdvice = async () => {
     ".advice-text"
   ).innerHTML = `<q>${data.slip.advice}</q>`;
   console.log(res, data);
-};
+}
