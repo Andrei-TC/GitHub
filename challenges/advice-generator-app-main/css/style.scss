@@ -1,0 +1,108 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;500;800&display=swap");
+:root {
+  --Light-Cyan: hsl(193, 38%, 86%);
+  --Neon-Green: hsl(150, 100%, 66%);
+  --Grayish-Blue: hsl(217, 19%, 38%);
+  --Dark-Grayish-Blue: hsl(217, 19%, 24%);
+  --Dark-Blue: hsl(218, 23%, 16%);
+  font-family: "Manrope", sans-serif;
+  font-weight: 800;
+}
+html {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  position: absolute;
+  bottom: 1.5%;
+  color: var(--Light-Cyan);
+}
+.attribution a {
+  color: var(--Neon-Green);
+  &:hover {
+    color: var(--Grayish-Blue);
+  }
+  &:focus-visible {
+    color: var(--Grayish-Blue);
+    outline: var(--Neon-Green) solid 1px;
+    background: var(--Light-Cyan);
+    outline-offset: 1px;
+  }
+}
+body {
+  background: var(--Dark-Blue);
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+.container {
+  background: var(--Dark-Grayish-Blue);
+  border-radius: 10px;
+  height: fit-content;
+  width: 80vw;
+  max-width: 45ch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+  padding-bottom: 3rem;
+  text-align: center;
+  position: relative;
+  .divider {
+    src: url(../images/pattern-divider-mobile.svg);
+  }
+  p {
+    font-size: 28px;
+    color: var(--Light-Cyan);
+    padding-inline: 1rem;
+    max-width: 35ch;
+  }
+  h1 {
+    color: var(--Neon-Green);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  .randombutton {
+    position: absolute;
+    bottom: -2rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    input {
+      background: var(--Neon-Green);
+      border: none;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      transition: 0.1s ease-out;
+      cursor: pointer;
+      &:hover {
+        box-shadow: 0 0 30px var(--Neon-Green);
+      }
+      &:focus-visible {
+        outline: var(--Neon-Green) solid 1px;
+        box-shadow: 0 0 30px var(--Neon-Green);
+        outline-offset: 3px;
+      }
+    }
+    .dice {
+      position: absolute;
+      pointer-events: none;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+@media (min-width: 600px) {
+  .divider[src*="images/pattern-divider-mobile.svg"] {
+    content: url(../images/pattern-divider-desktop.svg);
+  }
+}
