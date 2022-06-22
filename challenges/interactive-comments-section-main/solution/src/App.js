@@ -1,10 +1,10 @@
-import CommentsList from "./components/comments-list";
-import React from "react";
+import "./index.css";
+import Comments from "./components/comments";
 
 function App() {
   return (
     <div className="container">
-      <CommentsList currentUserName="juliusomo" />
+      <Comments currentUserName="juliusomo" />
     </div>
   );
 }

@@ -11,7 +11,9 @@
   --n-White: hsl(0, 0%, 100%);
   font-family: "Rubik", sans-serif;
 }
-
+html {
+  box-sizing: border-box;
+}
 * {
   margin: 0;
   padding: 0;
@@ -41,7 +43,6 @@ body {
   padding: 1rem;
 }
 .comment-container {
-  width: calc(100vw -1px);
   height: fit-content;
   background-color: var(--n-White);
   padding: 1rem;
@@ -60,12 +61,17 @@ body {
   font-weight: 500;
 }
 .created-at {
+  inline-size: 7rem;
+  overflow-wrap: break-word;
   color: var(--n-Grayish-Blue);
+  font-size: 0.8rem;
 }
 .comment-text {
   margin-bottom: 1rem;
   color: var(--n-Grayish-Blue);
   line-height: 21px;
+  width: 100%;
+  overflow-wrap: break-word;
 }
 .user-action {
   justify-content: space-between;
@@ -89,6 +95,9 @@ body {
   align-content: center;
   color: var(--p-Moderate-blue);
   font-weight: 500;
+  margin-inline: -2px;
+  border-radius: 2px;
+  z-index: 0;
 }
 .rBtn:hover {
   background-color: var(--n-Light-gray);
@@ -140,18 +149,20 @@ body {
   content: url(../public/images/icon-delete.svg);
   margin-right: 0.5rem;
 }
-.reply {
-  justify-self: end;
+.reply-c {
+  gap: 1rem;
+  padding: 0;
+  background: transparent;
   width: 95%;
+  justify-self: end;
   position: relative;
 }
-.reply-c::before {
+.reply-c.comment-container::before {
   content: "";
   width: 2px;
   height: 100%;
-  left: -5%;
+  left: -1rem;
   top: 0;
-  display: inline-block;
   position: absolute;
   background-color: var(--n-Light-gray);
 }
@@ -187,4 +198,15 @@ body {
   font-size: 0.7rem;
   font-weight: bold;
   padding: 0.2rem;
+}
+.replyingTo {
+  color: var(--p-Moderate-blue);
+  font-weight: 600;
+}
+.action-container {
+  display: flex;
+  gap: 0.5rem;
+}
+.cancelBtn {
+  background-color: var(--p-Soft-Red);
 }
