@@ -2,6 +2,8 @@ import React from "react";
 import UpVote from "./upvote";
 import moment from "moment";
 import CommentForm from "./commentForm";
+import { useState } from "react";
+import DeleteConfirmation from "./deleteConfirm";
 
 const Comment = ({
   comment,
@@ -28,11 +30,49 @@ const Comment = ({
     activeComment &&
     activeComment.type === "editing" &&
     activeComment.id === comment.id;
-
+  let commentReplyingTo = "";
   const replyId = parentId ? parentId : comment.id;
+
+  if (activeComment) {
+    if (comment.id === activeComment.id) commentReplyingTo = comment.username;
+  }
+  const [showReplies, setShowReplies] = useState(true);
+  const [showReplyLabel, setReplyLabel] = useState("Replies ▼");
+  const seeReply = "Replies ▼";
+  const collapeReply = "Replies ▲";
+  const [deleteConfirm, setDeleteConfirm] = useState({
+    isLoading: false,
+  });
+  const deletePopUp = () => {
+    setDeleteConfirm({ isLoading: true });
+  };
+  const deletePopUpX = () => {
+    setDeleteConfirm({ isLoading: false });
+  };
+  let ifTrue = null;
+  const areYouSureDelete = (option) => {
+    ifTrue = option;
+    return ifTrue;
+  };
+  const hideRepliesFunc = () => {
+    setShowReplies(!showReplies);
+    if (showReplyLabel === seeReply) {
+      setReplyLabel(collapeReply);
+    } else {
+      setReplyLabel(seeReply);
+    }
+  };
 
   return (
     <React.Fragment>
+      {deleteConfirm.isLoading && (
+        <DeleteConfirmation
+          onDiag={areYouSureDelete}
+          deteleAction={deleteComment}
+          comment={comment}
+          deletePopUpX={deletePopUpX}
+        />
+      )}
       <div className="comment-container grid">
         <div className="user-info flex">
           <img className="user-avatar" src={comment.image} alt="avatar"></img>
@@ -40,7 +80,7 @@ const Comment = ({
             {comment.username}{" "}
             {isUserName && <span className="userBadge">you</span>}
           </p>
-          <p className="created-at">{moment().fromNow()}</p>
+          <p className="created-at">{moment(comment.createdAt).fromNow()}</p>
         </div>
         {!isEditing && (
           <p className="comment-text">
@@ -92,7 +132,9 @@ const Comment = ({
               {canDelete && (
                 <button
                   className="comment-button delete"
-                  onClick={() => deleteComment(comment.id)}
+                  onClick={(set) => {
+                    deletePopUp(set);
+                  }}
                 >
                   Delete
                 </button>
@@ -101,30 +143,43 @@ const Comment = ({
           </div>
         )}
       </div>
+      {replies.length > 0 && (
+        <button
+          className="see-comments"
+          type="button"
+          onClick={hideRepliesFunc}
+        >
+          {showReplyLabel}
+        </button>
+      )}
       {isReplying && (
         <CommentForm
           submitLabel="Reply"
-          handleSubmit={(text) => addComment(text, replyId)}
+          handleSubmit={(text) => addComment(text, replyId, commentReplyingTo)}
         />
       )}
       {replies.length > 0 && (
-        <div className="comment-container grid reply-c ">
-          {replies.map((reply) => (
-            <Comment
-              comment={reply}
-              key={reply.id}
-              currentUserName={currentUserName}
-              replies={[]}
-              deleteComment={deleteComment}
-              updateComment={updateComment}
-              parentId={comment.id}
-              addComment={addComment}
-              activeComment={activeComment}
-              setActiveComment={setActiveComment}
-              updateCommentScore={updateCommentScore}
-            />
-          ))}
-        </div>
+        <React.Fragment>
+          {showReplies && (
+            <div className="comment-container grid reply-c">
+              {replies.map((reply) => (
+                <Comment
+                  comment={reply}
+                  key={reply.id}
+                  currentUserName={currentUserName}
+                  replies={[]}
+                  deleteComment={deleteComment}
+                  updateComment={updateComment}
+                  parentId={comment.id}
+                  addComment={addComment}
+                  activeComment={activeComment}
+                  setActiveComment={setActiveComment}
+                  updateCommentScore={updateCommentScore}
+                />
+              ))}
+            </div>
+          )}
+        </React.Fragment>
       )}
     </React.Fragment>
   );

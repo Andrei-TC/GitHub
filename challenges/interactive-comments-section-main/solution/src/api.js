@@ -8,7 +8,7 @@ export const getComments = async () => {
       score: 12,
       parentId: null,
       replyingTo: null,
-      createdAt: "1 month ago",
+      createdAt: "2022-05-03T05:21:44.806Z",
     },
     {
       id: "2",
@@ -18,7 +18,7 @@ export const getComments = async () => {
       score: 5,
       parentId: null,
       replyingTo: null,
-      createdAt: "2 weeks ago",
+      createdAt: "2022-06-06T05:21:44.806Z",
     },
     {
       id: "3",
@@ -28,7 +28,7 @@ export const getComments = async () => {
       score: 4,
       parentId: "2",
       replyingTo: "maxblagun",
-      createdAt: "1 week ago",
+      createdAt: "2022-06-07T05:21:44.806Z",
     },
     {
       id: "4",
@@ -38,7 +38,7 @@ export const getComments = async () => {
       score: 2,
       parentId: "2",
       replyingTo: "ramsesmiron",
-      createdAt: "2 days ago",
+      createdAt: "2022-06-07T05:21:44.806Z",
     },
   ];
 };

@@ -13,6 +13,7 @@ import CommentForm from "./commentForm";
 const Comments = ({ currentUserName }) => {
   const [backendComments, setBackendComments] = useState([]);
   const [activeComment, setActiveComment] = useState(null);
+
   const rootComments = backendComments.filter(
     (backendComment) => backendComment.parentId === null
   );
@@ -27,18 +28,22 @@ const Comments = ({ currentUserName }) => {
   };
 
   const addComment = (text, parentId, targetUser) => {
-    createCommentApi(text, parentId).then((comment) => {
+    createCommentApi(text, parentId, targetUser).then((comment) => {
       setBackendComments([...backendComments, comment]);
       setActiveComment(null);
     });
   };
-  const deleteComment = (commentId) => {
-    deleteCommentApi(commentId).then(() => {
-      const updatedBackendComments = backendComments.filter(
-        (backendComment) => backendComment.id !== commentId
-      );
-      setBackendComments(updatedBackendComments);
-    });
+
+  const deleteComment = (commentId, ifTrue) => {
+    if (ifTrue === true) {
+      console.log("ifTrue was true");
+      deleteCommentApi(commentId).then(() => {
+        const updatedBackendComments = backendComments.filter(
+          (backendComment) => backendComment.id !== commentId
+        );
+        setBackendComments(updatedBackendComments);
+      });
+    }
   };
 
   const updateComment = (text, commentId) => {
@@ -64,6 +69,7 @@ const Comments = ({ currentUserName }) => {
       setBackendComments(updatedBackendComments);
     });
   };
+
   useEffect(() => {
     getCommentsApi().then((data) => {
       setBackendComments(data);
@@ -89,7 +95,7 @@ const Comments = ({ currentUserName }) => {
         ))}
       </div>
       <div className="comment-container grid send-comment-container">
-        <CommentForm submitLabel="Add comment" handleSubmit={addComment} />
+        <CommentForm submitLabel="Send" handleSubmit={addComment} />
       </div>
     </React.Fragment>
   );
