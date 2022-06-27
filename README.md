@@ -1,1 +1,1 @@
-# Slow, but surely
+# Here you can visit the challenges folder
