@@ -191,6 +191,7 @@ main {
           filter: drop-shadow(0 0 5px rgba(128, 128, 128, 0.233));
   background: white;
   border-radius: 1rem;
+  margin-inline: 1rem;
 }
 
 .main-content .card__content {
